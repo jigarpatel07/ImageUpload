@@ -7,18 +7,22 @@ function HorizontalScroll({ src }) {
 
   const handleSaveImage = (imageSrc) => {
     console.log(imageSrc)
-    fetch(imageSrc)
-      .then((res) => res.blob())
-      .then((blob) => {
-        const file = new File([blob], "image.jpg", { type: blob.type });
-        const formData = new FormData();
-        formData.append("image", file);
+    // fetch(imageSrc)
+    //   .then((res) => res.blob())
+    //   .then((blob) => {
+    //     const file = new File([blob], "image.jpg", { type: blob.type });
+    //     const formData = new FormData();
+    //     formData.append("image", file);
 
-        axios
-          .post("http://localhost:5000/saveImage", formData)
-          .then((res) => console.log(res.data))
-          .catch((err) => console.log(err));
-      })
+    //     axios
+    //       .post("http://localhost:5000/saveImage", formData)
+    //       .then((res) => console.log(res.data))
+    //       .catch((err) => console.log(err));
+    //   })
+    //   .catch((err) => console.log(err));
+    axios
+      .post("http://localhost:5000/saveImage", { image: imageSrc })
+      .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
   return (
@@ -32,7 +36,7 @@ function HorizontalScroll({ src }) {
           className="w-[400px] h-[300px] rounded-lg shadow-md"
 
         />
-        {showBtn && <button className='absolute bottom-2 left-[50%] bg-black text-white p-2 rounded-md' onClick={() => setSelectedImage(src)}>show</button>}
+        {showBtn && <button className='absolute bottom-2 left-[45%] bg-black text-white p-2 rounded-md' onClick={() => setSelectedImage(src)}>show</button>}
       </div>
       {selectedImage && (
         <div

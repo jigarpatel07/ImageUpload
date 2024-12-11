@@ -7,7 +7,10 @@ import "./slide.css"
 import HorizontalScroll from './HorizontalScroll'
 import axios from 'axios'
 function Slide() {
-    const images = [img1, img2, img3, img4]
+    // const images = [img1, img2, img3, img4]
+    const images = [
+        "https://images.all-free-download.com/images/thumbjpg/tree_meadow_nature_220408.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBgQG1QYGl0AacuP5T3Eg3G3hZgubkz5lusgjydjCucRQSE9IQ6nQzm0y0YG8TaXrIxfk&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvqyxBSROv5olS7XoI6wIFxfiOI9qQ8STvu7nve2a04l9hoChhUffoCO1CqZi56UugCgU&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUuXpJf1diRoYXNfzW4ml3N7ntzY97ky1_1oaMsher22QyR8zf0o8g5eN3zTQ1jxyYccs&usqp=CAU"]
     const handleWheel = (e) => {
         const container = e.currentTarget;
         container.scrollLeft += e.deltaY;
